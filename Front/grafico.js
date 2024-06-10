@@ -1,46 +1,34 @@
-google.charts.load("current", { packages: ["corechart"] });
-
-// Define a função de callback para executar quando a API de Visualização do Google for carregada.
+google.charts.load('current', {'packages':['corechart']});
+// Define um callback para executar quando a API de visualização for carregada
 google.charts.setOnLoadCallback(drawChart);
 
-// Função de callback que cria e preenche uma tabela de dados,
-// instancia o gráfico de pizza, passa os dados e desenha.
 async function drawChart() {
   try {
-    const response = await fetch("http://192.168.1.7:5000/monitoramento");
-    const result = await response.json();
-
-    console.log("Dados buscados:", result);
-
-    if (!Array.isArray(result)) {
-      throw new Error("Os dados buscados não são um array");
+    const response = await fetch('http://192.168.1.7:5000/monitoramento');
+    if (!response.ok) {
+      throw new Error('Falha na resposta da rede');
     }
-
-    // Verifica se todos os itens são arrays e têm exatamente dois elementos
-    const transformedResult = result.map(row => {
-      if (Array.isArray(row) && row.length === 2) {
-        return row;
-      }
-      throw new Error("Cada linha deve ser um array com exatamente dois elementos");
-    });
+    const dataApi = await response.json();
 
     var data = new google.visualization.DataTable();
-    data.addColumn("string", "Tarefa");
-    data.addColumn("number", "Horas por Dia");
+    data.addColumn('string', 'Dispositivo');
+    data.addColumn('number', 'Luminosidade');
 
-    data.addRows(transformedResult);
+    // Preenche os dados com a variável 'dataApi'
+    dataApi.forEach(function(item) {
+      data.addRow([item.dispositivo, parseFloat(item.luminosidade)]);
+    });
 
+    // Define as opções do gráfico
     var options = {
-      title: "Distribuição das Tarefas por Dia",
-      width: 400,
-      height: 300,
+      title: 'Luminosidade por Dispositivo',
+      is3D: true,
     };
 
-    var chart = new google.visualization.PieChart(
-      document.getElementById("chart_div")
-    );
+    // Cria e desenha o gráfico de pizza
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
     chart.draw(data, options);
   } catch (error) {
-    console.error("Erro ao buscar ou analisar os dados:", error);
+    console.error('Houve um problema com a operação fetch:', error);
   }
 }
