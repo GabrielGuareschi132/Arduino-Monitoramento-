@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Projeto Monitoramento - Fatec Taquaritinga</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="info-header">
+        <div class="logo">
+          <img
+            src="assets/Fatec Taquaritinga (branco).png"
+            alt="Logo Fatec Taquaritinga"
+            width="100px"
+          />
+
+          <img
+            src="assets/ADS (preto)  horizontal.png"
+            alt="logo Análise e Desenvolvimento de Sistemas"
+            width="150px"
+          />
+        </div>
+      </div>
+      <div class="info-header">
+        <div class="icons-header">
+          <i class="fa-solid fa-user margin-icons"></i>
+          <i class="fa-solid fa-bell margin-icons"></i>
+        </div>
+        <img
+          src="assets/CPS (branco).png"
+          alt="logo Centro Paula Souza"
+          height="50px"
+        />
+      </div>
+    </header>
+
+    <section class="main">
+      <div class="sidebar">
+        <h3>Menu</h3>
+        <hr class="sidebar-divisor" />
+        <div class="item-menu">
+          <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="grafico.html"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
+          <a href="#"><i class="fa-solid fa-file"></i> Relatórios</a>
+          <a href="#" class="logout"
+            ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+          >
+        </div>
+        <br />
+      </div>
+      <div class="content">
+        <div class="sidebar-mobile">
+          <h3>Menu</h3>
+          <hr class="sidebar-divisor" />
+          <div class="item-menu-mobile">
+            <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+
+            <a href="#"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
+
+            <a href="#"><i class="fa-solid fa-file"></i> Relatórios</a>
+
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+          </div>
+          <br />
+        </div>
+
+        <div class="titulo-secao">
+          <h2>Dashboard Monitoramento</h2>
+          <br />
+          <hr />
+          <br />
+          <p><i class="fa-solid fa-house"></i> / Home</p>
+        </div>
+
+        <div class="tabelaRegistros">
+          <div class="table-header">
+            <h3>Últimas 20 medições:</h3>
+            <input type="text" placeholder="Pesquisar..." id="inputPesquisa" />
+          </div>
+          <table class="bootstrap-style-table" id="tabelaMonitoramento">
+            <thead>
+              <th class="alignItensColumn">#</th>
+              <th class="alignItensColumn">Temperatura</th>
+              <th class="alignItensColumn">Umidade</th>
+              <th class="alignItensColumn">Dispositivo</th>
+              <th class="alignItensColumn">Luminosidade</th>
+              <th class="alignItensColumn">Presença</th>
+              <th class="alignItensColumn">Distancia</th>
+              <th class="alignItensColumn">Data</th>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/all.min.js"></script>
+  </body>
+</html>
