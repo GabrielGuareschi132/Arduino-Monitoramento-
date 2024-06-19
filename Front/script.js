@@ -1,23 +1,21 @@
 function getData() {
-  fetch("http://192.168.1.7:5000/monitoramento")
+  fetch("http://localhost:5000/monitoramento")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
       const tableBody = document
         .getElementById("tabelaMonitoramento")
         .getElementsByTagName("tbody")[0];
-      tableBody.innerHTML = ""; 
+      tableBody.innerHTML = "";
       data.forEach((item) => {
         const row = tableBody.insertRow();
         row.innerHTML = `
-        <td class="alignItensColumn">${item.id}</td>
-        <td class="alignItensColumn">${item.temperatura}</td>
-        <td class="alignItensColumn">${item.umidade}</td>
-        <td class="alignItensColumn">${item.dispositivo}</td>
-        <td class="alignItensColumn">${item.luminosidade}</td>
-        <td class="alignItensColumn">${item.presenca}</td>
-        <td class="alignIt\aensColumn">${item.distancia}</td>
-        <td class="alignItensColumn">${item.dt_created}</td>
+                      <td class="alignItensColumn">${item.id}</td>
+                      <td class="alignItensColumn">${item.temperatura}</td>
+                      <td class="alignItensColumn">${item.umidade}</td>
+                      <td class="alignItensColumn">${item.dispositivo}</td>
+                      <td class="alignItensColumn">${item.luminosidade}</td>
+                      <td class="alignItensColumn">${item.dt_created}</td>
                   `;
       });
     })
@@ -30,11 +28,11 @@ pesquisaInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     pesquisa = e.target.value;
     console.log(pesquisa);
-    getDataByDispositivo();
+    getDataById();
   }
 });
 
-function getDataByDispositivo() {
+function getDataById() {
   fetch(`http://localhost:5000/monitoramento/${pesquisa}`)
     .then((response) => response.json())
     .then((data) => {
@@ -46,10 +44,12 @@ function getDataByDispositivo() {
       data.forEach((item) => {
         const row = tableBody.insertRow();
         row.innerHTML = `
-        <td class="alignItensColumn">${item.id}</td>
-        <td class="alignItensColumn">${item.temperatura}</td>
-        <td class="alignItensColumn">${item.umidade}</td>
-        <td class="alignItensColumn">${item.dispositivo}</td>
+                      <td class="alignItensColumn">${item.id}</td>
+                      <td class="alignItensColumn">${item.temperatura}</td>
+                      <td class="alignItensColumn">${item.umidade}</td>
+                      <td class="alignItensColumn">${item.dispositivo}</td>
+                      <td class="alignItensColumn">${item.luminosidade}</td>
+                      <td class="alignItensColumn">${item.dt_created}</td>
                   `;
       });
     })

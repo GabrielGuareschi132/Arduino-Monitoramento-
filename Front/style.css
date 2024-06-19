@@ -10,6 +10,7 @@
 html,
 body {
   height: 100%;
+  
 }
 
 header {
@@ -165,6 +166,7 @@ header {
 .sidebar-mobile a > svg {
   color: #444;
 }
+
 
 @media screen and (min-width: 768px) {
   .sidebar-mobile {

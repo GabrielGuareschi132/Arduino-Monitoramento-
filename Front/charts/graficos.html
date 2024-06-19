@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Projeto Monitoramento - Fatec Taquaritinga</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="graficos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <link rel="shortcut icon" href="../assets/logo-fatec.jpg" type="image/x-icon" />
+
+  </head>
+  <body>
+    <header>
+      <div class="info-header">
+        <div class="logo">
+          <img
+            src="../assets/fatectq.jpg"
+            alt="Logo Fatec Taquaritinga"
+            width="100px"
+          />
+  
+      </div>
+    </header>
+    <section class="main">
+      <aside class="sidebar">
+        <h3>Menu</h3>
+        <hr class="sidebar-divisor" />
+        <nav class="item-menu">
+          <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="#"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
+          <a href="#" class="logout"
+          >
+        </nav>
+      </aside>
+      <div class="content">
+        <div class="sidebar-mobile">
+          <h3>Menu</h3>
+          <hr class="sidebar-divisor" />
+          <nav class="item-menu-mobile">
+            <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
+            <a href="#"
+            >
+          </nav>
+        </div>
+      
+        <div class="charts">
+          <iframe class="gauge" src="./gaugeChart/gauge.html" frameborder="0"></iframe>
+          <iframe class="pie" src="./GraficoTorta/pie.html" frameborder="0"></iframe>
+          <iframe class="line" src="./GraficoLinha/line.html" frameborder="0"></iframe>
+          <iframe class="bar" src="./GraficoBarra/bar.html" frameborder="0"></iframe>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/all.min.js"></script>
+  </body>
+</html>
